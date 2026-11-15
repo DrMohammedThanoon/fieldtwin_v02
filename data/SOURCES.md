@@ -1,7 +1,7 @@
 # Data sources (exact products actually used)
 
 Official challenge Resources page: https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=resources
-Eligibility status: **UNVERIFIED** until a used product is traced to that page.
+Eligibility status: **PENDING TEAM CONFIRMATION**. NASADEM_HGT.001 is accessed through NASA Earthdata Search, which the team plan lists as an official challenge resource. The Resources page could not be fetched from the build machine (TLS error), so a team member must confirm the listing in a browser and update this line.
 
 Record one row per **downloaded** product. Do not list a product here before it has been downloaded and opened.
 
@@ -36,6 +36,6 @@ Record one row per **downloaded** product. Do not list a product here before it 
 - QA versus MOLA after alignment: mean difference 38.2 m, std 15.1 m, range −154 to +237 m. A constant offset does not affect slope or roughness; the 15 m spread is the relevant vertical-uncertainty indicator.
 - **Resolution limit:** 20 m posting resolves terrain at a scale of about 60 m and up (route planning). It does **not** resolve rocks or wheel-scale hazards.
 
-Planned (not yet downloaded):
-- Mars context: MGS MOLA MEGDR (PDS Geosciences), the PDS-listed eligibility source on the Mars side
-- Earth: NASADEM_HGT.001 (doi:10.5067/MEASURES/NASADEM/NASADEM_HGT.001); NASADEM_SC.001 cross-check
+Not used in v1:
+- MGS MOLA MEGDR: not downloaded separately. MOLA enters indirectly, because the USGS CTX DTM is aligned to MOLA shots (`*_mola_shots.csv` retained).
+- NASADEM_SC.001: not used. Slopes are recomputed at the common 60 m scale instead.

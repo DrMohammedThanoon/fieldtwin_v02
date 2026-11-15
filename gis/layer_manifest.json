@@ -1,4 +1,19 @@
 {
-  "_note": "Record IDs, URLs, rights and attribution for any external tile/GIS service. Esri is optional and not confirmed.",
-  "layers": []
+  "_note": "External map services used by the public app (app/src/components/SearchMap.tsx). No keys, no logins. Esri was not used.",
+  "layers": [
+    {
+      "id": "openfreemap-dark",
+      "type": "vector basemap style",
+      "url": "https://tiles.openfreemap.org/styles/dark",
+      "attribution": "OpenFreeMap, OpenMapTiles, data from OpenStreetMap contributors",
+      "rights": "free public instance; attribution shown in the map"
+    },
+    {
+      "id": "nasa-gibs-bluemarble",
+      "type": "raster tiles (WMTS, EPSG:3857, max zoom 8)",
+      "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg",
+      "attribution": "NASA GIBS / Blue Marble",
+      "rights": "NASA imagery, no restrictions; attribution shown"
+    }
+  ]
 }

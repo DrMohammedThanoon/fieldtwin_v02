@@ -169,6 +169,18 @@ export default function App() {
               </div>
             </div>
           </div>
+          <ol className="pipeline reveal" aria-label="How FieldTwin works">
+            {[
+              ['Data', 'Mars: USGS CTX DTM · Earth: NASA NASADEM'],
+              ['Matched grid', '60 m, each body on its own local projection'],
+              ['Measure', '7 slope, relief & roughness descriptors per 6 km window'],
+              ['Rank', 'Distance to Jezero in units of its own variability'],
+              ['Stress-test', '10 variants · known analog · negative control'],
+              ['Verdict', 'Candidate + what does and does not transfer'],
+            ].map(([t, d], i) => (
+              <li key={t}><span className="pn">{String(i + 1).padStart(2, '0')}</span><b>{t}</b><span>{d}</span></li>
+            ))}
+          </ol>
         </Chapter>
 
         <Chapter id="search" n="02" title="598 windows of Earth, measured and ranked."
@@ -191,7 +203,7 @@ export default function App() {
               </figure>
             ))}
           </div>
-          <div style={{ display: 'grid', gap: 20, marginTop: 28 }}>
+          <div className="stack" style={{ marginTop: 28 }}>
             <div className="reveal"><SlopeChart data={data} /></div>
             <div className="reveal"><FeatureProfile data={data} /></div>
             <div className="reveal"><Robustness data={data} /></div>
@@ -253,6 +265,19 @@ export default function App() {
               <p><b>AI use.</b> An AI coding assistant helped write code and documentation; every number on this page is computed from the data by the open pipeline, not generated. ML ranking was deliberately not used (no independent labels to validate it).</p>
               <p><b>Reproduce.</b> <a href={REPO}>{REPO.replace('https://', '')}</a>: <span className="mono">python -m science.run_baseline</span>, <span className="mono">science.evaluate</span>, <span className="mono">science.figures</span>.</p>
             </div>
+          </div>
+          <div className="card reveal team" style={{ marginTop: 20 }}>
+            <p className="eyebrow">Team · NASA Space Apps 2026 Riyadh</p>
+            <ul>
+              {[
+                ['Dr. Mohammed Ibrahim Thanoon', 'Scientific & AI lead · method, evaluation, final approval'],
+                ['Abdulrahman Jaber Alabdali', 'GIS & remote sensing · Earth/Mars data'],
+                ['Abdulrahman Alazori', 'Frontend, integration & deployment'],
+                ['Abdullah Almutiri', 'Data engineering & automated tests'],
+                ['Nouf Alzahrani', 'Physical interpretation & limitations'],
+                ['Hafsa', 'Novelty audit, references & presentation'],
+              ].map(([n, r]) => <li key={n}><b>{n}</b><span>{r}</span></li>)}
+            </ul>
           </div>
         </Chapter>
       </main>
