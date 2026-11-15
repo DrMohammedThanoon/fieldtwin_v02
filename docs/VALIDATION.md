@@ -30,3 +30,9 @@ Reproduce: `python -m science.evaluate` → `outputs/validated/sensitivity.json`
 ## Pending
 - Visual and surface-type check of the consensus windows (imagery).
 - Independent expert rating (none available within the event; see `MODEL_BENCHMARK.md`).
+
+## Visual surface check (2026-11-15, team, satellite imagery)
+- **Candidate A (27.729° N, 40.392° E):** crescentic Nefud dunes with interdune hollows. A dark rock massif sits in the SE corner (labelled "Jabal al-Urfa - Jiran" on Google Maps), so this is a **dune-to-bedrock margin**.
+- **Candidate B (28.540° N, 40.023° E):** pure dune field.
+- **Finding:** at 60 m, geometry-only matching does not distinguish dune fields from Jezero's bedrock/regolith terrain. Surface material is therefore listed as DOES NOT TRANSFER, and the field-test task is framed as navigation across a sand-to-bedrock transition. A dune/material mask is future work.
+- **Selected:** candidate A (`outputs/validated/site_card.json`).
