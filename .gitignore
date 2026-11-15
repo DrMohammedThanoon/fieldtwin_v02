@@ -1,0 +1,40 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.netrc
+
+# Data (not committed)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+*.tif
+*.tiff
+*.img
+*.hgt
+*.IMG
+*.zip
+*.nc
+*.h5
+
+# Python / conda
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.conda/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+dist/
+app/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

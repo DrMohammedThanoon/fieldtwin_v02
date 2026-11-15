@@ -1,0 +1,19 @@
+name: fieldtwin
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - rasterio
+  - rioxarray
+  - xarray
+  - geopandas
+  - shapely
+  - pyproj
+  - pyarrow
+  - matplotlib
+  - jupyterlab
+  - pytest
