@@ -37,16 +37,16 @@ EARTH = [
 ]
 
 
-def mars_windows() -> pd.DataFrame:
+def mars_windows(res: float = terrain.ANALYSIS_RES_M) -> pd.DataFrame:
     pid = MARS["product_id"]
     z, tr, crs = terrain.read_dem(RAW / "mars" / pid / f"{pid}_dtm.tif")
-    g = terrain.to_analysis_grid(z, tr, crs, MARS["lon0"], MARS["lat0"], "mars")
+    g = terrain.to_analysis_grid(z, tr, crs, MARS["lon0"], MARS["lat0"], "mars", res=res)
     df = pd.DataFrame(terrain.grid_windows(g))
     df["site"], df["role"] = MARS["site"], "mars_reference"
     return df
 
 
-def earth_windows(spec) -> pd.DataFrame:
+def earth_windows(spec, res: float = terrain.ANALYSIS_RES_M) -> pd.DataFrame:
     paths = [RAW / "earth" / f"NASADEM_HGT_{t}" / f"{t}.hgt" for t in spec["tiles"]]
     swbs = [p.with_suffix(".swb") for p in paths]
     dss = [rasterio.open(p) for p in paths]
@@ -63,7 +63,7 @@ def earth_windows(spec) -> pd.DataFrame:
     z[m[0] == 255] = np.nan  # water
     lon0 = (spec["bbox"][0] + spec["bbox"][2]) / 2
     lat0 = (spec["bbox"][1] + spec["bbox"][3]) / 2
-    g = terrain.to_analysis_grid(z, tr, crs.to_wkt(), lon0, lat0, "earth")
+    g = terrain.to_analysis_grid(z, tr, crs.to_wkt(), lon0, lat0, "earth", res=res)
     df = pd.DataFrame(terrain.grid_windows(g))
     x0, y0, x1, y1 = spec["bbox"]
     df = df[(df.lon >= x0) & (df.lon <= x1) & (df.lat >= y0) & (df.lat <= y1)].copy()
@@ -98,7 +98,7 @@ def main():
     summary = {
         "method": "baseline v1: robust-z distance to Mars reference windows, group weights slope/relief/roughness = 1/3 each",
         "analysis_res_m": terrain.ANALYSIS_RES_M,
-        "window_km": terrain.WINDOW_PX * terrain.ANALYSIS_RES_M / 1000,
+        "window_km": terrain.WINDOW_M / 1000,
         "min_valid_fraction": terrain.MIN_VALID_FRACTION,
         "weights": weights,
         "mars_reference": {"n_windows": len(mars), "median": med.round(4).to_dict(), "scale": scale.round(4).to_dict()},
