@@ -1,6 +1,8 @@
 import * as maplibregl from 'maplibre-gl'
 import type { ExpressionSpecification, Map as MLMap } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+// MapLibre 6 runs its tile engine in a separate worker file; let Vite emit it and tell MapLibre where it is.
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { useEffect, useRef, useState } from 'react'
 import { type AppData, FEATURE_META, FEATURES, type WindowProps, fmtLatLon } from '../data'
 
@@ -26,6 +28,8 @@ const SITES: Record<SiteKey, { label: string; role: string; color: string; cente
   sabkhat_matti: { label: 'Sabkhat Matti', role: 'neg. control', color: 'var(--control)', center: [52.05, 23.865], zoom: 9.6 },
 }
 
+maplibregl.setWorkerUrl(workerUrl)
+
 const GIBS =
   'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg'
 
@@ -44,15 +48,23 @@ export default function SearchMap({ data }: { data: AppData }) {
     const m = new maplibregl.Map({
       container: el.current,
       style: 'https://tiles.openfreemap.org/styles/dark',
-      bounds: [[28.5, 22.6], [53.5, 38.6]],
+      bounds: [[39.75, 26.85], [41.25, 29.15]], // open on the Jubbah search area; fly-to buttons reach the other sites
       fitBoundsOptions: { padding: 40 },
       attributionControl: { compact: true },
       cooperativeGestures: true,
     })
     map.current = m
     m.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right')
+    el.current.dataset.mapState = 'init'
     m.on('error', (e) => {
-      if (String(e.error?.message ?? '').includes('style')) setFailed(true)
+      const msg = String(e.error?.message ?? 'unknown')
+      if (el.current) el.current.dataset.mapError = msg.slice(0, 200)
+      if (msg.includes('style')) setFailed(true)
+    })
+    m.on('idle', () => {
+      if (!el.current || !m.getLayer('win-fill')) return
+      el.current.dataset.mapState = 'idle'
+      el.current.dataset.renderedWindows = String(m.queryRenderedFeatures({ layers: ['win-fill'] }).length)
     })
     m.on('load', () => {
       const firstSymbol = m.getStyle().layers.find((l) => l.type === 'symbol')?.id
