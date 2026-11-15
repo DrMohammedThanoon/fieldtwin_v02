@@ -12,6 +12,6 @@ Always non-transferable from any Earth site: Mars gravity (~0.38 g), thin CO2 at
 ## Candidate A: Analog Transfer Matrix
 The full matrix is in `outputs/validated/site_card.json`. Summary:
 - **WORKS:** slope distribution, local relief and roughness at 60 m; the sand-to-bedrock transition.
-- **PARTIAL:** window-scale relief (79 m vs Jezero median 272 m).
+- **PARTIAL:** window-scale relief (79 m vs Jezero median 272 m), inside Jezero's wide spread but well below its median. All 7 descriptors lie within ±1 Jezero spread.
 - **DOES NOT TRANSFER:** bedform scale, surface material/strength, gravity, atmosphere, radiation.
 - **UNKNOWN:** rock and hazard density below 60 m.

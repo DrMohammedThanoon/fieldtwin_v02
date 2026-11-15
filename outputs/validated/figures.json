@@ -1,0 +1,84 @@
+{
+ "jezero": {
+  "file": "figures/jezero_hillshade.png",
+  "size_km": 12.0,
+  "res_m": 30.0,
+  "valid_fraction": 0.971,
+  "px": 400,
+  "body": "Mars",
+  "center": {
+   "lon_e": 77.4505,
+   "lat_n": 18.4449
+  },
+  "marker": {
+   "lon_e": 77.4508,
+   "lat_n": 18.4447
+  },
+  "label": "Jezero crater floor, Perseverance landing site (Mars 2015 sphere coordinates)"
+ },
+ "hero_jezero": {
+  "file": "figures/hero_jezero.png",
+  "size_km": 24.0,
+  "res_m": 30.0,
+  "valid_fraction": 0.81,
+  "px": 800,
+  "body": "Mars",
+  "center": {
+   "lon_e": 77.4041,
+   "lat_n": 18.4449
+  },
+  "label": "Jezero, 24 km hero view"
+ },
+ "candidate_a": {
+  "file": "figures/candidate_a_hillshade.png",
+  "size_km": 12.0,
+  "res_m": 30.0,
+  "valid_fraction": 1.0,
+  "px": 400,
+  "body": "Earth",
+  "center": {
+   "lon_e": 40.3921,
+   "lat_n": 27.729
+  },
+  "label": "Candidate A, Nefud dune-bedrock margin"
+ },
+ "hero_candidate_a": {
+  "file": "figures/hero_candidate_a.png",
+  "size_km": 24.0,
+  "res_m": 30.0,
+  "valid_fraction": 1.0,
+  "px": 800,
+  "body": "Earth",
+  "center": {
+   "lon_e": 40.3921,
+   "lat_n": 27.729
+  },
+  "label": "Candidate A, 24 km hero view"
+ },
+ "lake_salda": {
+  "file": "figures/lake_salda_hillshade.png",
+  "size_km": 12.0,
+  "res_m": 30.0,
+  "valid_fraction": 0.699,
+  "px": 400,
+  "body": "Earth",
+  "center": {
+   "lon_e": 29.6798,
+   "lat_n": 37.55
+  },
+  "label": "Lake Salda (known analog)"
+ },
+ "sabkhat_matti": {
+  "file": "figures/sabkhat_matti_hillshade.png",
+  "size_km": 12.0,
+  "res_m": 30.0,
+  "valid_fraction": 0.998,
+  "px": 400,
+  "body": "Earth",
+  "center": {
+   "lon_e": 52.0584,
+   "lat_n": 23.84
+  },
+  "label": "Sabkhat Matti (negative control)"
+ }
+}
