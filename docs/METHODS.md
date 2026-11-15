@@ -1,6 +1,12 @@
-# METHODS: baseline v1 (Phase 4)
+# METHODS: baseline v1
 
-Reproduce with `python -m science.run_baseline` (fieldtwin env, raw data per `data/SOURCES.md`).
+Reproduce (fieldtwin env, raw data per `data/SOURCES.md`):
+```
+python -m science.run_baseline   # windows, descriptors, ranking
+python -m science.evaluate       # 10-variant sensitivity, equal-n test, consensus
+python -m science.site_card      # candidate card + transfer matrix
+python -m science.figures        # web hillshades + slope distributions
+```
 
 ## 1. Common physical scale
 - Each DEM is area-averaged (`Resampling.average`) onto a **local transverse-Mercator grid at 60 m**, built on **its own body's** geodetic CRS:
@@ -11,7 +17,7 @@ Reproduce with `python -m science.run_baseline` (fieldtwin env, raw data per `da
 - Earth water pixels (NASADEM `.swb` = 255) and no-data are excluded before resampling.
 
 ## 2. Windows and descriptors
-Non-overlapping **6 km × 6 km windows** (100 × 100 cells). A window is kept only if at least 80 % of its cells are valid.
+Non-overlapping **6 km × 6 km windows** (100 × 100 cells at 60 m). A window is kept only if at least 80 % of its cells are valid. Window size, local-relief neighbourhood (600 m) and roughness length (300 m) are fixed **in metres**, so the 90 m and 120 m sensitivity grids measure the same physical scales.
 
 | Feature | Definition | Group |
 |---|---|---|
@@ -34,9 +40,18 @@ Non-overlapping **6 km × 6 km windows** (100 × 100 cells). A window is kept on
 | Known analog | Lake Salda, Turkey | 29.55–29.85° E, 37.45–37.65° N |
 | Negative control | Sabkhat Matti | 51.95–52.15° E, 23.78–23.95° N |
 
-## 5. Known limitations of v1 (addressed in Phase 5)
-- **Multiple-comparison bias:** the best-of-576 Jubbah windows is compared with the best-of-13 Salda windows. Site medians are the fairer comparison.
-- The weights are a documented choice, not a calibrated one; sensitivity analysis is pending.
-- The Mars reference pools crater floor and delta together; a task-specific sub-reference is pending.
+## 5. Validation and candidate selection
+See `docs/VALIDATION.md`:
+- 10 variants (weights, 60/90/120 m scale, landing-area Mars reference)
+- an equal-sample comparison with the known analog (2,000 draws)
+- multi-variant consensus (top 20 in every variant, matched within 3.5 km)
+- a visual surface check
+
+Candidate A = consensus window at 27.729° N, 40.392° E.
+
+## 6. Known limitations
+- Geometry-only matching at 60 m does not distinguish dune sand from bedrock or regolith (surface material is listed as DOES NOT TRANSFER).
+- Weights are a documented choice; sensitivity shows that the region-level result is robust but individual top windows are not.
+- Earth search covers three areas only (598 windows); no global claim.
 - Windows at the edge of the search area can be partly empty (valid fraction 0.80–0.90).
-- No visual or geological check of the top Earth windows has been done yet; they could be dune fields rather than palaeolake terrain.
+- Hazards below 60 m (rocks, ripples) are not resolved.

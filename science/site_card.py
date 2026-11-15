@@ -53,7 +53,7 @@ def main():
             {"aspect": "Slope distribution at 60 m (median about 5 deg, p90 about 11 deg)", "status": "WORKS", "evidence": "measured; distance < 0.4 Mars-variability units"},
             {"aspect": "Local relief and 300 m roughness", "status": "WORKS", "evidence": "measured; within Jezero reference spread"},
             {"aspect": "Sand-to-bedrock transition for navigation", "status": "WORKS", "evidence": "visible in imagery; Jezero/Seitah has sand next to bedrock (NASA)"},
-            {"aspect": "Window-scale relief (p95-p5)", "status": "PARTIAL", "evidence": f'candidate {cand["relief_p95_p5_m"]:.0f} m vs Jezero median {mars_med["relief_p95_p5_m"]:.0f} m'},
+            {"aspect": "Window-scale relief (p95-p5)", "status": "PARTIAL", "evidence": f'candidate {cand["relief_p95_p5_m"]:.0f} m vs Jezero median {mars_med["relief_p95_p5_m"]:.0f} m: inside the wide Jezero spread, but well below its median'},
             {"aspect": "Bedform scale (Nefud dunes tens of m vs Martian ripples about 1 m)", "status": "DOES NOT TRANSFER", "evidence": "different aeolian regime"},
             {"aspect": "Surface material, grain size, bearing strength", "status": "DOES NOT TRANSFER", "evidence": "quartz dune sand vs basaltic regolith; not measured"},
             {"aspect": "Gravity (Mars about 0.38 g)", "status": "DOES NOT TRANSFER", "evidence": "physics; wheel sinkage/slip scale differently"},
