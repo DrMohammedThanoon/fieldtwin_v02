@@ -25,10 +25,9 @@ Reproduce: `python -m science.evaluate` → `outputs/validated/sensitivity.json`
 - **Caveats:**
   - The consensus window at 40.023° E sits on the western edge of the searched area, so terrain may continue beyond it (not searched).
   - Both consensus windows lie 50–90 km from the Jubbah palaeolake bed itself. They are **not** the palaeolake.
-  - Their surface type (dune, gravel plain, bedrock) has not yet been checked against imagery.
+  - Surface type was checked on imagery afterwards (see "Visual surface check" below): both are dune terrain.
 
 ## Pending
-- Visual and surface-type check of the consensus windows (imagery).
 - Independent expert rating (none available within the event; see `MODEL_BENCHMARK.md`).
 
 ## Visual surface check (2026-11-15, team, satellite imagery)
