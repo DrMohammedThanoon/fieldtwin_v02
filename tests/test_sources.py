@@ -40,3 +40,14 @@ def test_mars_dtm_metadata():
         valid = 1 - np.ma.getmaskarray(a).mean()
         assert valid > 0.5
         assert -9000 < float(a.min()) and float(a.max()) < 22000  # plausible Mars elevations (m)
+
+
+@pytest.mark.parametrize("tile,lon,lat", [("n28e040", 40.94, 28.02), ("n27e040", 40.85, 27.95)])
+def test_nasadem_jubbah_tiles(tile, lon, lat):
+    hgt = ROOT / "data" / "raw" / "earth" / f"NASADEM_HGT_{tile}" / f"{tile}.hgt"
+    if not hgt.exists():
+        pytest.skip(f"NASADEM {tile} not downloaded")
+    with rasterio.open(hgt) as ds:
+        assert ds.crs.to_epsg() == 4326 and ds.width == 3601
+        r, c = ds.index(lon, lat)
+        assert 700 < int(ds.read(1)[r, c]) < 1000  # Jubbah basin floor elevations
