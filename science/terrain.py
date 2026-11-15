@@ -25,10 +25,20 @@ from rasterio.warp import Resampling, calculate_default_transform, reproject
 from scipy import ndimage
 
 ANALYSIS_RES_M = 60.0      # common physical analysis scale (m)
-WINDOW_PX = 100            # 100 x 60 m = 6 km windows
+WINDOW_M = 6000.0          # 6 km windows
+LOCAL_RELIEF_M = 600.0     # neighbourhood for (max - min)
+ROUGHNESS_M = 300.0        # smoothing length; roughness = std of residual
 MIN_VALID_FRACTION = 0.8   # windows with less valid data are excluded
-LOCAL_RELIEF_PX = 10       # 10 cells -> 600 m neighbourhood (max - min)
-ROUGHNESS_PX = 5           # 5 cells -> 300 m smoothing; roughness = std of residual
+
+
+def px(metres: float, res: float) -> int:
+    """Physical length -> whole cells (at least 2)."""
+    return max(2, int(round(metres / res)))
+
+
+WINDOW_PX = px(WINDOW_M, ANALYSIS_RES_M)            # 100 at 60 m
+LOCAL_RELIEF_PX = px(LOCAL_RELIEF_M, ANALYSIS_RES_M)  # 10 at 60 m
+ROUGHNESS_PX = px(ROUGHNESS_M, ANALYSIS_RES_M)        # 5 at 60 m
 
 FEATURES = [
     "slope_median_deg",
@@ -112,11 +122,12 @@ def slope_deg(z: np.ndarray, res: float) -> np.ndarray:
 def descriptor_maps(z: np.ndarray, res: float) -> dict[str, np.ndarray]:
     """Per-cell slope, 600 m local relief and 300 m roughness residual (NaN where undefined)."""
     invalid = ~np.isfinite(z)
-    zmax = ndimage.maximum_filter(np.where(invalid, -np.inf, z), size=LOCAL_RELIEF_PX)
-    zmin = ndimage.minimum_filter(np.where(invalid, np.inf, z), size=LOCAL_RELIEF_PX)
-    bad_k = ndimage.maximum_filter(invalid.astype(np.uint8), size=LOCAL_RELIEF_PX).astype(bool)
-    bad_r = ndimage.maximum_filter(invalid.astype(np.uint8), size=ROUGHNESS_PX).astype(bool)
-    zmean = ndimage.uniform_filter(np.where(invalid, 0.0, z), size=ROUGHNESS_PX)
+    k, r = px(LOCAL_RELIEF_M, res), px(ROUGHNESS_M, res)
+    zmax = ndimage.maximum_filter(np.where(invalid, -np.inf, z), size=k)
+    zmin = ndimage.minimum_filter(np.where(invalid, np.inf, z), size=k)
+    bad_k = ndimage.maximum_filter(invalid.astype(np.uint8), size=k).astype(bool)
+    bad_r = ndimage.maximum_filter(invalid.astype(np.uint8), size=r).astype(bool)
+    zmean = ndimage.uniform_filter(np.where(invalid, 0.0, z), size=r)
     return {
         "slope": slope_deg(z, res),
         "local_relief": np.where(bad_k, np.nan, zmax - zmin),
@@ -148,8 +159,9 @@ def window_features(z: np.ndarray, maps: dict, r0: int, c0: int, n: int = WINDOW
     }
 
 
-def grid_windows(grid: Grid, n: int = WINDOW_PX) -> list[dict]:
+def grid_windows(grid: Grid, n: int | None = None) -> list[dict]:
     """All valid non-overlapping windows with centre lon/lat (body geodetic) and corner polygon."""
+    n = n or px(WINDOW_M, grid.res)
     maps = descriptor_maps(grid.z, grid.res)
     to_geo = Transformer.from_crs(grid.crs, grid.crs.geodetic_crs, always_xy=True)
     out = []

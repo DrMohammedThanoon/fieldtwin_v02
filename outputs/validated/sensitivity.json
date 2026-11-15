@@ -1,0 +1,809 @@
+{
+ "variants": [
+  {
+   "variant": "w:baseline@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3477,
+     "median": 0.774
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4532,
+     "median": 1.2688
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.4783,
+     "median": 1.8206
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 5,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.2688,
+    "salda_best": 0.4532,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.5685,
+     0.7678,
+     1.2302
+    ],
+    "share_jubbah_median_below_salda": 0.9815,
+    "share_jubbah_best_below_salda": 0.4245
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.3477
+    },
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.3722
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.4003
+    },
+    {
+     "lon": 40.3312,
+     "lat": 27.7287,
+     "distance": 0.4044
+    },
+    {
+     "lon": 40.0237,
+     "lat": 28.4859,
+     "distance": 0.4084
+    }
+   ]
+  },
+  {
+   "variant": "w:slope_heavy@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3508,
+     "median": 0.7705
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4678,
+     "median": 1.2053
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.43,
+     "median": 1.7265
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 5,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.2053,
+    "salda_best": 0.4678,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.5552,
+     0.7665,
+     1.1856
+    ],
+    "share_jubbah_median_below_salda": 0.978,
+    "share_jubbah_best_below_salda": 0.63
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.3508
+    },
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.3729
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.3832
+    },
+    {
+     "lon": 40.3312,
+     "lat": 27.7287,
+     "distance": 0.3869
+    },
+    {
+     "lon": 40.0237,
+     "lat": 28.4859,
+     "distance": 0.3899
+    }
+   ]
+  },
+  {
+   "variant": "w:relief_heavy@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3486,
+     "median": 0.8041
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4112,
+     "median": 1.2409
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.4894,
+     "median": 1.7785
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 4,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.2409,
+    "salda_best": 0.4112,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.6141,
+     0.7995,
+     1.2183
+    ],
+    "share_jubbah_median_below_salda": 0.983,
+    "share_jubbah_best_below_salda": 0.047
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.3486
+    },
+    {
+     "lon": 40.1494,
+     "lat": 27.5118,
+     "distance": 0.4103
+    },
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.4335
+    },
+    {
+     "lon": 40.3312,
+     "lat": 27.7287,
+     "distance": 0.4559
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.4623
+    }
+   ]
+  },
+  {
+   "variant": "w:roughness_heavy@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3197,
+     "median": 0.7438
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4777,
+     "median": 1.3715
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.5142,
+     "median": 1.9495
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 4,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.3715,
+    "salda_best": 0.4777,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.526,
+     0.7379,
+     1.2394
+    ],
+    "share_jubbah_median_below_salda": 0.985,
+    "share_jubbah_best_below_salda": 0.915
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.3197
+    },
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.3235
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.3467
+    },
+    {
+     "lon": 40.0237,
+     "lat": 28.4859,
+     "distance": 0.3539
+    },
+    {
+     "lon": 40.0224,
+     "lat": 28.7566,
+     "distance": 0.3602
+    }
+   ]
+  },
+  {
+   "variant": "w:no_slope@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.291,
+     "median": 0.7799
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4225,
+     "median": 1.3871
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.5704,
+     "median": 1.9957
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 3,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.3871,
+    "salda_best": 0.4225,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.5841,
+     0.7771,
+     1.2449
+    ],
+    "share_jubbah_median_below_salda": 0.988,
+    "share_jubbah_best_below_salda": 0.0875
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.291
+    },
+    {
+     "lon": 40.1494,
+     "lat": 27.5118,
+     "distance": 0.3702
+    },
+    {
+     "lon": 40.088,
+     "lat": 27.674,
+     "distance": 0.4107
+    },
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.4117
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.4326
+    }
+   ]
+  },
+  {
+   "variant": "w:no_relief@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.1994,
+     "median": 0.7008
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.5272,
+     "median": 1.3558
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.4558,
+     "median": 1.9021
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 3,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.3558,
+    "salda_best": 0.5272,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.4616,
+     0.696,
+     1.2813
+    ],
+    "share_jubbah_median_below_salda": 0.985,
+    "share_jubbah_best_below_salda": 0.995
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.1994
+    },
+    {
+     "lon": 40.0234,
+     "lat": 28.5401,
+     "distance": 0.2308
+    },
+    {
+     "lon": 40.0237,
+     "lat": 28.4859,
+     "distance": 0.2327
+    },
+    {
+     "lon": 40.0224,
+     "lat": 28.7566,
+     "distance": 0.2432
+    },
+    {
+     "lon": 40.0232,
+     "lat": 28.5942,
+     "distance": 0.2684
+    }
+   ]
+  },
+  {
+   "variant": "w:no_roughness@60m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3887,
+     "median": 0.8196
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.3997,
+     "median": 1.3934
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.4037,
+     "median": 1.5308
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 2,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.3934,
+    "salda_best": 0.3997,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.629,
+     0.813,
+     1.138
+    ],
+    "share_jubbah_median_below_salda": 0.9995,
+    "share_jubbah_best_below_salda": 0.066
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.1492,
+     "lat": 27.5659,
+     "distance": 0.3887
+    },
+    {
+     "lon": 40.0893,
+     "lat": 27.3492,
+     "distance": 0.3927
+    },
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.3979
+    },
+    {
+     "lon": 40.1494,
+     "lat": 27.5118,
+     "distance": 0.4468
+    },
+    {
+     "lon": 40.3921,
+     "lat": 27.7288,
+     "distance": 0.4542
+    }
+   ]
+  },
+  {
+   "variant": "scale:90m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.3729,
+     "median": 0.7694
+    },
+    "lake_salda": {
+     "n": 18,
+     "best": 0.2666,
+     "median": 1.2821
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.4096,
+     "median": 1.6697
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 4,
+   "equal_n": {
+    "n_per_site": 18,
+    "iterations": 2000,
+    "salda_median": 1.2821,
+    "salda_best": 0.2666,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.578,
+     0.778,
+     1.1055
+    ],
+    "share_jubbah_median_below_salda": 0.9965,
+    "share_jubbah_best_below_salda": 0.0
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.8229,
+     "lat": 27.9941,
+     "distance": 0.3729
+    },
+    {
+     "lon": 40.3329,
+     "lat": 27.7223,
+     "distance": 0.4116
+    },
+    {
+     "lon": 40.3941,
+     "lat": 27.7224,
+     "distance": 0.4255
+    },
+    {
+     "lon": 40.0236,
+     "lat": 28.5378,
+     "distance": 0.4282
+    },
+    {
+     "lon": 40.0238,
+     "lat": 28.4834,
+     "distance": 0.4327
+    }
+   ]
+  },
+  {
+   "variant": "scale:120m",
+   "mars_reference_windows": 24,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.2679,
+     "median": 0.8309
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.33,
+     "median": 1.3155
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.546,
+     "median": 1.6659
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 0,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.3155,
+    "salda_best": 0.33,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.6065,
+     0.8242,
+     1.1508
+    ],
+    "share_jubbah_median_below_salda": 0.998,
+    "share_jubbah_best_below_salda": 0.047
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.8768,
+     "lat": 27.1327,
+     "distance": 0.2679
+    },
+    {
+     "lon": 40.0893,
+     "lat": 27.3492,
+     "distance": 0.3162
+    },
+    {
+     "lon": 40.1494,
+     "lat": 27.5118,
+     "distance": 0.3661
+    },
+    {
+     "lon": 40.1492,
+     "lat": 27.5659,
+     "distance": 0.3785
+    },
+    {
+     "lon": 40.0265,
+     "lat": 27.8363,
+     "distance": 0.4206
+    }
+   ]
+  },
+  {
+   "variant": "mars_ref:landing_area_8",
+   "mars_reference_windows": 8,
+   "sites": {
+    "jubbah": {
+     "n": 576,
+     "best": 0.2264,
+     "median": 0.6363
+    },
+    "lake_salda": {
+     "n": 13,
+     "best": 0.4746,
+     "median": 1.1516
+    },
+    "sabkhat_matti": {
+     "n": 9,
+     "best": 1.1721,
+     "median": 1.4552
+    }
+   },
+   "control_ranks_last": true,
+   "jubbah_top5_overlap_with_baseline": 1,
+   "equal_n": {
+    "n_per_site": 13,
+    "iterations": 2000,
+    "salda_median": 1.1516,
+    "salda_best": 0.4746,
+    "jubbah_median_of_n_p2.5_p50_p97.5": [
+     0.5083,
+     0.6308,
+     0.9751
+    ],
+    "share_jubbah_median_below_salda": 0.994,
+    "share_jubbah_best_below_salda": 0.857
+   },
+   "jubbah_top5": [
+    {
+     "lon": 40.7559,
+     "lat": 27.1871,
+     "distance": 0.2264
+    },
+    {
+     "lon": 40.1494,
+     "lat": 27.5118,
+     "distance": 0.2905
+    },
+    {
+     "lon": 40.7557,
+     "lat": 27.0788,
+     "distance": 0.3094
+    },
+    {
+     "lon": 40.0889,
+     "lat": 27.4575,
+     "distance": 0.3217
+    },
+    {
+     "lon": 40.088,
+     "lat": 27.674,
+     "distance": 0.3444
+    }
+   ]
+  }
+ ],
+ "consensus_top10": [
+  {
+   "lon": 40.3921,
+   "lat": 27.7288,
+   "distance": 0.3722,
+   "rank": 2,
+   "consensus": 10,
+   "slope_median_deg": 4.8996,
+   "slope_p90_deg": 11.0664,
+   "slope_frac_gt15": 0.0474,
+   "slope_frac_gt25": 0.0026,
+   "relief_p95_p5_m": 79.4189,
+   "local_relief_600m_median_m": 53.668,
+   "roughness_300m_std_m": 4.4076
+  },
+  {
+   "lon": 40.0234,
+   "lat": 28.5401,
+   "distance": 0.4003,
+   "rank": 3,
+   "consensus": 10,
+   "slope_median_deg": 4.9734,
+   "slope_p90_deg": 11.1954,
+   "slope_frac_gt15": 0.0455,
+   "slope_frac_gt25": 0.0012,
+   "relief_p95_p5_m": 69.6518,
+   "local_relief_600m_median_m": 54.6727,
+   "roughness_300m_std_m": 4.4713
+  },
+  {
+   "lon": 40.7559,
+   "lat": 27.1871,
+   "distance": 0.3477,
+   "rank": 1,
+   "consensus": 9,
+   "slope_median_deg": 3.3428,
+   "slope_p90_deg": 11.3502,
+   "slope_frac_gt15": 0.0536,
+   "slope_frac_gt25": 0.0062,
+   "relief_p95_p5_m": 186.4689,
+   "local_relief_600m_median_m": 45.1835,
+   "roughness_300m_std_m": 4.1965
+  },
+  {
+   "lon": 40.3312,
+   "lat": 27.7287,
+   "distance": 0.4044,
+   "rank": 4,
+   "consensus": 9,
+   "slope_median_deg": 5.0113,
+   "slope_p90_deg": 10.8238,
+   "slope_frac_gt15": 0.0447,
+   "slope_frac_gt25": 0.0015,
+   "relief_p95_p5_m": 77.8122,
+   "local_relief_600m_median_m": 53.2724,
+   "roughness_300m_std_m": 4.7466
+  },
+  {
+   "lon": 40.0237,
+   "lat": 28.4859,
+   "distance": 0.4084,
+   "rank": 5,
+   "consensus": 9,
+   "slope_median_deg": 4.8533,
+   "slope_p90_deg": 10.8738,
+   "slope_frac_gt15": 0.0484,
+   "slope_frac_gt25": 0.0015,
+   "relief_p95_p5_m": 63.6932,
+   "local_relief_600m_median_m": 53.2393,
+   "roughness_300m_std_m": 4.5096
+  },
+  {
+   "lon": 40.0224,
+   "lat": 28.7566,
+   "distance": 0.4155,
+   "rank": 6,
+   "consensus": 9,
+   "slope_median_deg": 4.8298,
+   "slope_p90_deg": 10.9315,
+   "slope_frac_gt15": 0.0394,
+   "slope_frac_gt25": 0.0016,
+   "relief_p95_p5_m": 61.8513,
+   "local_relief_600m_median_m": 51.4911,
+   "roughness_300m_std_m": 4.4397
+  },
+  {
+   "lon": 40.0229,
+   "lat": 28.6484,
+   "distance": 0.4242,
+   "rank": 9,
+   "consensus": 9,
+   "slope_median_deg": 5.109,
+   "slope_p90_deg": 11.4484,
+   "slope_frac_gt15": 0.0464,
+   "slope_frac_gt25": 0.0016,
+   "relief_p95_p5_m": 63.8815,
+   "local_relief_600m_median_m": 54.0437,
+   "roughness_300m_std_m": 4.795
+  },
+  {
+   "lon": 40.0232,
+   "lat": 28.5942,
+   "distance": 0.4199,
+   "rank": 7,
+   "consensus": 8,
+   "slope_median_deg": 5.0523,
+   "slope_p90_deg": 11.0237,
+   "slope_frac_gt15": 0.0419,
+   "slope_frac_gt25": 0.0003,
+   "relief_p95_p5_m": 65.977,
+   "local_relief_600m_median_m": 53.9054,
+   "roughness_300m_std_m": 4.5645
+  },
+  {
+   "lon": 40.0874,
+   "lat": 27.8365,
+   "distance": 0.4285,
+   "rank": 10,
+   "consensus": 8,
+   "slope_median_deg": 4.8594,
+   "slope_p90_deg": 10.9047,
+   "slope_frac_gt15": 0.0378,
+   "slope_frac_gt25": 0.0009,
+   "relief_p95_p5_m": 65.2908,
+   "local_relief_600m_median_m": 50.6332,
+   "roughness_300m_std_m": 4.672
+  },
+  {
+   "lon": 40.0849,
+   "lat": 28.4861,
+   "distance": 0.424,
+   "rank": 8,
+   "consensus": 7,
+   "slope_median_deg": 4.8065,
+   "slope_p90_deg": 10.5641,
+   "slope_frac_gt15": 0.0386,
+   "slope_frac_gt25": 0.0007,
+   "relief_p95_p5_m": 65.658,
+   "local_relief_600m_median_m": 52.3083,
+   "roughness_300m_std_m": 4.4751
+  }
+ ],
+ "summary": {
+  "n_variants": 10,
+  "control_last_in_all": true,
+  "jubbah_median_below_salda_median_in": 10,
+  "min_top5_overlap": 0,
+  "baseline_top5": [
+   {
+    "lon": 40.7559,
+    "lat": 27.1871,
+    "distance": 0.3477
+   },
+   {
+    "lon": 40.3921,
+    "lat": 27.7288,
+    "distance": 0.3722
+   },
+   {
+    "lon": 40.0234,
+    "lat": 28.5401,
+    "distance": 0.4003
+   },
+   {
+    "lon": 40.3312,
+    "lat": 27.7287,
+    "distance": 0.4044
+   },
+   {
+    "lon": 40.0237,
+    "lat": 28.4859,
+    "distance": 0.4084
+   }
+  ]
+ }
+}

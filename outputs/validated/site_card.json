@@ -1,0 +1,122 @@
+{
+ "title": "FieldTwin candidate A: Nefud dune-bedrock margin, Ha'il region, Saudi Arabia",
+ "classification": "under-recognized candidate / new proposed mission use (see docs/NOVELTY_AUDIT.md); NOT a first-ever claim",
+ "mission": {
+  "mars_reference": "Jezero crater (Perseverance), USGS CTX DTM P02_001820_1984_XI_18N282W__P06_003442_1987_XI_18N282W",
+  "task": "Rehearse autonomous route planning and hazard avoidance across Jezero-like slope/relief, including a sand-to-bedrock transition (cf. Perseverance in sand-rich Seitah next to bedrock)."
+ },
+ "candidate": {
+  "center_lon": 40.3921,
+  "center_lat": 27.7288,
+  "window_km": 6.0,
+  "baseline_rank": 2,
+  "distance": 0.3722,
+  "consensus_variants": "10/10",
+  "surface_visual_check": "Crescentic dunes with interdune hollows; dark rock massif at SE corner (labelled 'Jabal al-Urfa - Jiran' on Google Maps). Checked by team on satellite imagery, 2026-11-15."
+ },
+ "comparison": {
+  "features": [
+   "slope_median_deg",
+   "slope_p90_deg",
+   "slope_frac_gt15",
+   "slope_frac_gt25",
+   "relief_p95_p5_m",
+   "local_relief_600m_median_m",
+   "roughness_300m_std_m"
+  ],
+  "mars_jezero_median": {
+   "slope_median_deg": 5.2387,
+   "slope_p90_deg": 12.3055,
+   "slope_frac_gt15": 0.0589,
+   "slope_frac_gt25": 0.0075,
+   "relief_p95_p5_m": 272.0502,
+   "local_relief_600m_median_m": 52.5554,
+   "roughness_300m_std_m": 4.4789
+  },
+  "candidate_A": {
+   "slope_median_deg": 4.8996,
+   "slope_p90_deg": 11.0664,
+   "slope_frac_gt15": 0.0474,
+   "slope_frac_gt25": 0.0026,
+   "relief_p95_p5_m": 79.4189,
+   "local_relief_600m_median_m": 53.668,
+   "roughness_300m_std_m": 4.4076
+  },
+  "site_distance_median": {
+   "jubbah": 0.774,
+   "lake_salda": 1.2688,
+   "sabkhat_matti": 1.8206
+  },
+  "site_distance_best": {
+   "jubbah": 0.3477,
+   "lake_salda": 0.4532,
+   "sabkhat_matti": 1.4783
+  },
+  "known_analog": "lake_salda",
+  "negative_control": "sabkhat_matti",
+  "robustness": {
+   "control_last_in_all_variants": true,
+   "jubbah_median_below_salda_median_in": "10/10"
+  }
+ },
+ "transfer_matrix": [
+  {
+   "aspect": "Slope distribution at 60 m (median about 5 deg, p90 about 11 deg)",
+   "status": "WORKS",
+   "evidence": "measured; distance < 0.4 Mars-variability units"
+  },
+  {
+   "aspect": "Local relief and 300 m roughness",
+   "status": "WORKS",
+   "evidence": "measured; within Jezero reference spread"
+  },
+  {
+   "aspect": "Sand-to-bedrock transition for navigation",
+   "status": "WORKS",
+   "evidence": "visible in imagery; Jezero/Seitah has sand next to bedrock (NASA)"
+  },
+  {
+   "aspect": "Window-scale relief (p95-p5)",
+   "status": "PARTIAL",
+   "evidence": "candidate 79 m vs Jezero median 272 m"
+  },
+  {
+   "aspect": "Bedform scale (Nefud dunes tens of m vs Martian ripples about 1 m)",
+   "status": "DOES NOT TRANSFER",
+   "evidence": "different aeolian regime"
+  },
+  {
+   "aspect": "Surface material, grain size, bearing strength",
+   "status": "DOES NOT TRANSFER",
+   "evidence": "quartz dune sand vs basaltic regolith; not measured"
+  },
+  {
+   "aspect": "Gravity (Mars about 0.38 g)",
+   "status": "DOES NOT TRANSFER",
+   "evidence": "physics; wheel sinkage/slip scale differently"
+  },
+  {
+   "aspect": "Atmosphere (about 0.6 kPa CO2), dust, temperature",
+   "status": "DOES NOT TRANSFER",
+   "evidence": "physics"
+  },
+  {
+   "aspect": "Radiation, communication delay",
+   "status": "DOES NOT TRANSFER",
+   "evidence": "can be emulated operationally only (delay)"
+  },
+  {
+   "aspect": "Rock/hazard density below 60 m",
+   "status": "UNKNOWN",
+   "evidence": "below DEM resolution; needs field survey or high-res imagery"
+  }
+ ],
+ "field_test_protocol": [
+  "1. Lay out 3 route segments inside the 6 km window: dune-only, bedrock-only, and dune-to-bedrock crossing, with slope classes <5, 5-15 and 15-25 deg.",
+  "2. Run a stereo-vision autonomous navigation stack (AutoNav-like) with an emulated Earth-Mars command delay; log hazard detections.",
+  "3. Measure wheel slip vs slope on sand and on bedrock, path efficiency, localization drift, and hazard false positive/negative rates.",
+  "4. Repeat at two sun angles (low-texture dune faces are a documented vision failure mode, ESA Morocco 2018).",
+  "5. Report results against the Analog Transfer Matrix: sand strength and gravity effects must be corrected, not transferred."
+ ],
+ "sources": "data/SOURCES.md; docs/REFERENCES.md"
+}
